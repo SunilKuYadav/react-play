@@ -1,0 +1,148 @@
+/* style applied using class selectors */
+.content {
+  color: #333;
+}
+
+/* styles applied using ID selectors */
+#unique-content {
+  font-weight: bold;
+}
+
+/* PSEUDO-CLASS SELECTORS  */
+/* pseudo-class allow you to apply styles based on the the state of element or position in document tree but on USER INTERACTION */
+
+/* DYNAMIC */
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+/* USER ACTION */
+button:checked {
+  background-color: #ccc;
+}
+/* RELATIONSHIP */
+li:first-child {
+  font-style: italic;
+}
+/* INPUT CONTROL */
+input:invalid,
+input:valid,
+input:optional,
+input:default,
+input:required {
+  border-color: orange;
+}
+/* ENABLED AND DISABLED */
+input:enabled {
+  background-color: #fff;
+}
+input:disabled {
+  background-color: #f0f0f0;
+}
+
+/* CSS RESET  */
+/* A CSS reset is a set of styles intended to reduce browser inconsistencies in elements such as margins, paddings, and various typical style defaults. */
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* select elements by attribute in CSS */
+input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+/* Exact Match */
+[class="important"] {
+  color: red;
+}
+
+/* Value Starts With */
+[href^="https"] {
+  color: green;
+}
+
+/* Case Insensitive */
+[alt="home" i] {
+  background: url('home-icon.png');
+}
+
+/* Child combinator and descender */
+/* Child Combinator >: Selects an HTML element that is a direct child of another element. */
+/* Descendant Combinator ~: Matches an HTML element that is a descendant (direct or indirect child) of another specified element. */
+
+/* target direct children of the parent element */
+nav > ul > li {
+  color: red;
+}
+
+/* target any descendant list items under nav */
+nav li {
+  color: blue;
+}
+
+/* Remove margins, paddings on all elements within the container */
+.containers > * {
+    margin: 0;
+    padding: 0;
+}
+/* Style the direct sibling anchor tag when a list item is hovered */
+ul li:hover + a {
+    color: red;
+}
+
+/* CSS Box Model */
+/* width/height + padding + border + margin */
+.box {
+  width: 200px; /* content width */
+  padding: 10px; /* space inside the border */
+  border: 2px solid #000; /* border thickness */
+  margin: 15px; /* space outside the border */
+  box-sizing: border-box; /* include padding and border in the element's total width and height */
+}
+
+/* Box Sizing Example: */
+
+/* content-box => width/height - padding - border = content size */
+/* border-box => width/height + padding + border = content size */
+
+/* Content-Box (default): The element's specified width and height are calculated excluding padding and border. When you change the width or height of an element using CSS, this is the model being used. */
+/* Border-Box: The width and height comprise the content, padding, and border, avoiding the expansion of the box when adding padding or border to an element. */
+
+
+/* Center a block element */
+.container {
+  width: 50%;
+  margin: 0 auto; /* Center horizontally */
+}
+.container {
+  display: flex;
+  justify-content: center; /* Horizontally center child elements */
+}
+.container {
+  display: flex;
+  align-items: center; /* Vertically center child elements */
+}
+.container {
+  display: grid;
+  align-items: center; /* Vertically center child elements */
+}
+
+/* Block, inline, and inline-block elements */
+.block-element {
+  display: block; /* Takes full width, starts on a new line */
+  width: 100%;
+  background-color: lightblue;
+}
+.inline-element {
+  display: inline; /* Takes only necessary width, does not start on a new line */
+  background-color: lightgreen;
+}
+.inline-block-element {
+  display: inline-block; /* Takes only necessary width, allows setting width/height */
+  width: 150px;
+  height: 50px;
+  background-color: lightcoral;
+}

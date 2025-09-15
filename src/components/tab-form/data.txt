@@ -1,0 +1,28 @@
+
+create a form
+that have 3 tab named profile, interest and setting
+
+each tab have few input field
+and submit form only on setting tab 
+
+perform validation on input field
+submit form on setting tab only
+
+
+===============================================
+🔹 Questions to Ask the Interviewer
+	1.	Form Structure
+	•	What fields should be in each tab? (e.g., Profile → name, email, Interest → hobbies, Settings → password, notifications).
+	•	Are the fields fixed or should the solution be extendable?
+	2.	Validation Rules
+	•	What kind of validation is required? (required fields, email format, password length, etc.).
+	•	Should validation happen on blur, on tab switch, or only on submit?
+	3.	Form Submission
+	•	Should the entire form data (all tabs) be submitted at once from the Settings tab?
+	•	What happens after submission — API call, console log, or just success message?
+	4.	Tab Navigation
+	•	Can users switch freely between tabs, or should validation block moving to the next tab?
+	•	Do we need to persist the data when switching tabs?
+	5.	Tech Details
+	•	Do I need to use a specific library like Formik / React Hook Form or only plain React?
+	•	Should I use controlled inputs (state-based) or uncontrolled with refs?
