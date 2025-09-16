@@ -1,0 +1,13 @@
+.bar-container {
+  background-color: antiquewhite;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 30px;
+}
+.bar-progress {
+  height: 100%;
+  transition: transform 1s ease;
+  text-align: right;
+  background-color: rgb(97, 161, 145);
+}

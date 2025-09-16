@@ -6,5 +6,16 @@ import { Pagination } from './pagination'
 import { AutoCompleteSearch } from './auto-search'
 import { FolderStructure } from './folder-structure'
 import { ValidParenthesis } from './valid-parenthesis'
+import { ProgressBar } from './progress-bar'
 
-export { ClickToCHangeColor, StateUpdateInBatch, PiaChart, TabForm, Pagination, AutoCompleteSearch, FolderStructure, ValidParenthesis }
+export {
+  ClickToCHangeColor,
+  StateUpdateInBatch,
+  PiaChart,
+  TabForm,
+  Pagination,
+  AutoCompleteSearch,
+  FolderStructure,
+  ValidParenthesis,
+  ProgressBar
+}

@@ -7,6 +7,7 @@ import {
   FolderStructure,
   Pagination,
   PiaChart,
+  ProgressBar,
   StateUpdateInBatch,
   TabForm,
   ValidParenthesis,
@@ -54,6 +55,11 @@ const FEATURE = [
     name: "Valid Parenthesis",
     desc: "",
     component: ValidParenthesis
+  },
+  {
+    name: "Progress bar",
+    dec: "",
+    component: ProgressBar
   }
 ];
 
