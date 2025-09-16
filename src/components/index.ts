@@ -4,5 +4,6 @@ import { PiaChart } from './pia-chart'
 import { TabForm } from './tab-form'
 import { Pagination } from './pagination'
 import { AutoCompleteSearch } from './auto-search'
+import { FolderStructure } from './folder-structure'
 
-export { ClickToCHangeColor, StateUpdateInBatch, PiaChart, TabForm, Pagination, AutoCompleteSearch }
+export { ClickToCHangeColor, StateUpdateInBatch, PiaChart, TabForm, Pagination, AutoCompleteSearch, FolderStructure }

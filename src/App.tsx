@@ -4,6 +4,7 @@ import "./App.css";
 import {
   AutoCompleteSearch,
   ClickToCHangeColor,
+  FolderStructure,
   Pagination,
   PiaChart,
   StateUpdateInBatch,
@@ -43,6 +44,11 @@ const FEATURE = [
     desc: "",
     component: AutoCompleteSearch,
   },
+  {
+    name: "Folder Structure",
+    desc: "",
+    component: FolderStructure
+  }
 ];
 
 function App() {
