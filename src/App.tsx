@@ -9,6 +9,7 @@ import {
   PiaChart,
   StateUpdateInBatch,
   TabForm,
+  ValidParenthesis,
 } from "./components";
 
 import PACKAGE from "../package.json";
@@ -48,6 +49,11 @@ const FEATURE = [
     name: "Folder Structure",
     desc: "",
     component: FolderStructure
+  },
+  {
+    name: "Valid Parenthesis",
+    desc: "",
+    component: ValidParenthesis
   }
 ];
 

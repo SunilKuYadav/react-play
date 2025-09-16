@@ -5,5 +5,6 @@ import { TabForm } from './tab-form'
 import { Pagination } from './pagination'
 import { AutoCompleteSearch } from './auto-search'
 import { FolderStructure } from './folder-structure'
+import { ValidParenthesis } from './valid-parenthesis'
 
-export { ClickToCHangeColor, StateUpdateInBatch, PiaChart, TabForm, Pagination, AutoCompleteSearch, FolderStructure }
+export { ClickToCHangeColor, StateUpdateInBatch, PiaChart, TabForm, Pagination, AutoCompleteSearch, FolderStructure, ValidParenthesis }
