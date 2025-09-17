@@ -1,0 +1,91 @@
+/* Bit Loader */
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.bit-loader {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem 0;
+}
+
+.bit-loader .bit {
+  height: 1rem;
+  width: 1rem;
+  background-color: cadetblue;
+  border-radius: 50%;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.bit-loader .bit:nth-child(1){
+  animation-delay: 0.1s;
+}
+.bit-loader .bit:nth-child(2){
+  animation-delay: 0.2s;
+}
+.bit-loader .bit:nth-child(3){
+  animation-delay: 0.3s;
+}
+.bit-loader .bit:nth-child(4){
+  animation-delay: 0.4s;
+}
+.bit-loader .bit:nth-child(5){
+  animation-delay: 0.5s;
+}
+
+
+
+
+
+
+/* Bit Loader */
+
+@keyframes scale {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.6;
+  }
+  40% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.scale-loader {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  padding: 1rem 0;
+}
+
+.scale-loader .scale {
+  height: 1rem;
+  width: 0.2rem;
+  background-color: cadetblue;
+  animation: scale 1s infinite ease-in-out;
+}
+
+.scale-loader .scale:nth-child(1){
+  animation-delay: 0.1s;
+}
+.scale-loader .scale:nth-child(2){
+  animation-delay: 0.2s;
+}
+.scale-loader .scale:nth-child(3){
+  animation-delay: 0.3s;
+}
+.scale-loader .scale:nth-child(4){
+  animation-delay: 0.4s;
+}
+.scale-loader .scale:nth-child(5){
+  animation-delay: 0.5s;
+}

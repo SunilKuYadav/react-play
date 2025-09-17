@@ -7,6 +7,7 @@ import { AutoCompleteSearch } from './auto-search'
 import { FolderStructure } from './folder-structure'
 import { ValidParenthesis } from './valid-parenthesis'
 import { ProgressBar } from './progress-bar'
+import { Loader } from './loader'
 
 export {
   ClickToCHangeColor,
@@ -17,5 +18,6 @@ export {
   AutoCompleteSearch,
   FolderStructure,
   ValidParenthesis,
-  ProgressBar
+  ProgressBar,
+  Loader
 }

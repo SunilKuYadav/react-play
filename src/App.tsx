@@ -5,6 +5,7 @@ import {
   AutoCompleteSearch,
   ClickToCHangeColor,
   FolderStructure,
+  Loader,
   Pagination,
   PiaChart,
   ProgressBar,
@@ -49,18 +50,23 @@ const FEATURE = [
   {
     name: "Folder Structure",
     desc: "",
-    component: FolderStructure
+    component: FolderStructure,
   },
   {
     name: "Valid Parenthesis",
     desc: "",
-    component: ValidParenthesis
+    component: ValidParenthesis,
   },
   {
     name: "Progress bar",
     dec: "",
-    component: ProgressBar
-  }
+    component: ProgressBar,
+  },
+  {
+    name: "Loader",
+    dec: "",
+    component: Loader,
+  },
 ];
 
 function App() {
