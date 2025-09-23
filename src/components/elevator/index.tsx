@@ -25,8 +25,8 @@ const Elevator: React.FC = () => {
   }, [controller, elevator]);
 
   // Handle call buttons
-  const handleCall = (floor: number, isUp: boolean) => {
-    controller.requestElevator(floor, isUp);
+  const handleCall = (floor: number) => {
+    controller.requestElevator(floor);
   };
 
   return (
@@ -48,9 +48,9 @@ const Elevator: React.FC = () => {
               }}
             >
               <p>Floor: {floorNum}</p>
-              <button onClick={() => handleCall(floorNum, true)}>Up</button>
+              <button onClick={() => handleCall(floorNum)}>Up</button>
               <p>{currentFloor}</p>
-              <button onClick={() => handleCall(floorNum, false)}>Down</button>
+              <button onClick={() => handleCall(floorNum)}>Down</button>
             </div>
           );
         })}
@@ -79,7 +79,7 @@ const Elevator: React.FC = () => {
                 <button
                   key={floor}
                   style={{ width: "3rem", padding: "0.5rem" }}
-                  onClick={() => handleCall(floor, floor > currentFloor)}
+                  onClick={() => handleCall(floor)}
                 >
                   {floor}
                 </button>
