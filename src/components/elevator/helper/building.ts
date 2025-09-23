@@ -3,11 +3,13 @@ import { Elevator } from './elevator';
 import { ElevatorController } from './controller';
 
 export class Building {
+  private name: string;
   private floors: Floor[];
   private elevators: Elevator[];
   private controller: ElevatorController;
 
-  constructor(private name: string, numFloors: number, numElevators: number) {
+  constructor(name: string, numFloors: number, numElevators: number) {
+    this.name = name;
     this.floors = Array.from({ length: numFloors }, (_, i) => new Floor(i));
     this.elevators = Array.from({ length: numElevators }, (_, i) => new Elevator(i));
     this.controller = new ElevatorController(this.elevators);

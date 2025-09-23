@@ -9,7 +9,11 @@ export class Elevator {
   private doorState: DoorState = 'closed';
   private requests: Set<number> = new Set();
 
-  constructor(private id: number) {}
+  private id: number;
+
+  constructor(id: number) {
+    this.id = id;
+  }
 
   getId(): number {
     return this.id;

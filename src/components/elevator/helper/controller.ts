@@ -1,16 +1,19 @@
 import { Elevator } from './elevator';
 
 export class ElevatorController {
-  constructor(private elevators: Elevator[]) { }
+  private elevators: Elevator[];
+  constructor(elevators: Elevator[]) {
+    this.elevators = elevators;
+  }
 
-  private schedulingStrategy(floor: number): Elevator {
+  private schedulingStrategy(): Elevator {
     let chosen = this.elevators.find(e => e.getState() === 'idle');
     if (!chosen) chosen = this.elevators[0];
     return chosen;
   }
 
-  requestElevator(floorNumber: number, isUp: boolean): void {
-    const elevator = this.schedulingStrategy(floorNumber);
+  requestElevator(floorNumber: number): void {
+    const elevator = this.schedulingStrategy();
     elevator.addRequest(floorNumber);
   }
 

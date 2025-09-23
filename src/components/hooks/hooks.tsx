@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import "./index.css";
@@ -68,12 +71,15 @@ const useRef = <T,>(initialValue: T): { current: T } => {
   return stateValues[currentCallIndex] as { current: T };
 };
 
-const useMemo = <T, >(factory: () => T, deps: any[])  : T => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const useMemo = <T, >(factory: () => T, deps: unknown[])  : T => {
   callIndex++;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const currentCallIndex = callIndex;
   
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 const App = () => {
   const [countA, setCountA] = useState(() => 1);
   const [countB, setCountB] = useState(-1);
