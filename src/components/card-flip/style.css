@@ -1,0 +1,81 @@
+.App {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 50%;
+  min-width: 400px;
+  overflow: scroll;
+  height: 400px;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.col-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.cell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  transition: all 0.5s ease;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show {
+  background-color: red;
+  transition: all 0.5s ease;
+  transform: rotateY(180deg);
+}
+.show .content {
+  opacity: 0;
+  animation: fade-in 2s forwards;
+  animation-delay: 0s;
+}
+.hide {
+  background-color: blue;
+  transition: all 0.5s ease;
+}
+.content {
+  transform: rotateY(180deg);
+  font-size: 2rem;
+  font-weight: bold;
+
+  opacity: 0;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reset-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.reset-btn:hover {
+  background: red;
+}
