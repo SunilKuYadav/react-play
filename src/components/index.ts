@@ -8,6 +8,9 @@ import { FolderStructure } from './folder-structure'
 import { ValidParenthesis } from './valid-parenthesis'
 import { ProgressBar } from './progress-bar'
 import { Loader } from './loader'
+import { TicTacToe } from './tic-tac-toe'
+import { Elevator } from './elevator'
+import { FlipCard } from './card-flip'
 
 export {
   ClickToCHangeColor,
@@ -19,5 +22,8 @@ export {
   FolderStructure,
   ValidParenthesis,
   ProgressBar,
-  Loader
+  Loader,
+  TicTacToe,
+  Elevator,
+  FlipCard
 }

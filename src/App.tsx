@@ -4,6 +4,8 @@ import "./App.css";
 import {
   AutoCompleteSearch,
   ClickToCHangeColor,
+  Elevator,
+  FlipCard,
   FolderStructure,
   Loader,
   Pagination,
@@ -11,6 +13,7 @@ import {
   ProgressBar,
   StateUpdateInBatch,
   TabForm,
+  TicTacToe,
   ValidParenthesis,
 } from "./components";
 
@@ -67,6 +70,21 @@ const FEATURE = [
     dec: "",
     component: Loader,
   },
+  {
+    name: "Tic Tac Toe",
+    desc: '',
+    component: TicTacToe
+  },
+  {
+    name: "Elevator",
+    des: "",
+    component: Elevator
+  },
+  {
+    name: 'Flip Card',
+    des: "",
+    component: FlipCard
+  }
 ];
 
 function App() {
