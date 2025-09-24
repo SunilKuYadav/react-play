@@ -89,15 +89,16 @@ const FEATURE = [
 ];
 
 function App() {
-  const [currentComponents, setCurrentComponents] = useState(
+  const [currentComponentIndex, setCurrentComponentIndex] = useState(
     FEATURE.length - 1
   );
   const [renderAll, setRenderAll] = useState(false);
 
-  const handlePrevClick = () => {setCurrentComponents(prev => (prev - 1) / (FEATURE.length - 1))}
-  const handleNextClick = () => {setCurrentComponents(prev => (prev + 1) / (FEATURE.length - 1))}
+const handlePrevClick = () =>
+    setCurrentComponentIndex((prev) => (prev - 1 + FEATURE.length) % FEATURE.length);
 
-
+  const handleNextClick = () =>
+    setCurrentComponentIndex((prev) => (prev + 1) % FEATURE.length);
 
   return (
     <>
@@ -120,8 +121,7 @@ function App() {
           border: "1px solid red",
         }}
       >
-        {(renderAll ? FEATURE : [FEATURE[currentComponents]]).map((_, i) => {
-          const feature = FEATURE[FEATURE.length - 1 - i];
+        {(renderAll ? FEATURE : [FEATURE[currentComponentIndex]]).map((feature) => {
           const Component = feature.component;
           return (
             <div
