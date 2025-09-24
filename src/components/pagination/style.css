@@ -1,3 +1,28 @@
-.product-img {
-  width: 5rem;
+.pagination-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container {
+  overflow: scroll;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 1rem;
+  background: #000;
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 0.5rem;
+  vertical-align: top;
+}
+
+th {
+  background: #333;
+  font-weight: bold;
 }

@@ -1,108 +1,49 @@
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import {
-  AutoCompleteSearch,
-  ClickToCHangeColor,
-  Elevator,
-  FlipCard,
-  FolderStructure,
-  Loader,
-  Pagination,
-  PiaChart,
-  ProgressBar,
-  StateUpdateInBatch,
-  TabForm,
-  TicTacToe,
-  ValidParenthesis,
-} from "./components";
 
 import PACKAGE from "../package.json";
 import { useState } from "react";
-
-const FEATURE = [
-  {
-    name: "Click To Change Color",
-    desc: "",
-    component: ClickToCHangeColor,
-  },
-  {
-    name: "Pia Chart",
-    desc: "",
-    component: PiaChart,
-  },
-  {
-    name: "State Update In Batch",
-    desc: "",
-    component: StateUpdateInBatch,
-  },
-  {
-    name: "Tab Form",
-    desc: "",
-    component: TabForm,
-  },
-  {
-    name: "Pagination",
-    desc: "",
-    component: Pagination,
-  },
-  {
-    name: "Auto Complete Search",
-    desc: "",
-    component: AutoCompleteSearch,
-  },
-  {
-    name: "Folder Structure",
-    desc: "",
-    component: FolderStructure,
-  },
-  {
-    name: "Valid Parenthesis",
-    desc: "",
-    component: ValidParenthesis,
-  },
-  {
-    name: "Progress bar",
-    dec: "",
-    component: ProgressBar,
-  },
-  {
-    name: "Loader",
-    dec: "",
-    component: Loader,
-  },
-  {
-    name: "Tic Tac Toe",
-    desc: "",
-    component: TicTacToe,
-  },
-  {
-    name: "Elevator",
-    des: "",
-    component: Elevator,
-  },
-  {
-    name: "Flip Card",
-    des: "",
-    component: FlipCard,
-  },
-];
+import { FEATURE } from "./components";
 
 function App() {
-  const [currentComponentIndex, setCurrentComponentIndex] = useState(
-    FEATURE.length - 1
+  const [currentComponentIndex, setCurrentComponentIndex] = useState(4);
+  const [showProblemStatement, setShowProblemStatement] = useState(() =>
+    Array.from({ length: FEATURE.length }).fill(false)
+  );
+  const [showProblemChallenges, setShowProblemChallenges] = useState(() =>
+    Array.from({ length: FEATURE.length }).fill(false)
   );
   const [renderAll, setRenderAll] = useState(false);
 
-const handlePrevClick = () =>
-    setCurrentComponentIndex((prev) => (prev - 1 + FEATURE.length) % FEATURE.length);
+  const handlePrevClick = () =>
+    setCurrentComponentIndex(
+      (prev) => (prev - 1 + FEATURE.length) % FEATURE.length
+    );
 
   const handleNextClick = () =>
     setCurrentComponentIndex((prev) => (prev + 1) % FEATURE.length);
 
+  const handleRandomClick = () =>
+    setCurrentComponentIndex(() => Math.floor(Math.random() * FEATURE.length));
+
+  const handleShowProblemStatement = (index: number) =>
+    setShowProblemStatement((prev) => {
+      const tempState = [...prev];
+      tempState[index] = !tempState[index];
+      return tempState;
+    });
+
+  const handleShowProblemChallenges = (index: number) =>
+    setShowProblemChallenges((prev) => {
+      const tempState = [...prev];
+      tempState[index] = !tempState[index];
+      return tempState;
+    });
+
   return (
     <>
-      <div>
+      <div className="header-container">
         <button onClick={() => setRenderAll((p) => !p)}>
           {renderAll ? "Render One" : "Render All"}
         </button>
@@ -110,32 +51,46 @@ const handlePrevClick = () =>
           <>
             <button onClick={handlePrevClick}>Prev</button>
             <button onClick={handleNextClick}>Next</button>
+            <button onClick={handleRandomClick}>Random</button>
           </>
         )}
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          padding: "2rem",
-          border: "1px solid red",
-        }}
-      >
-        {(renderAll ? FEATURE : [FEATURE[currentComponentIndex]]).map((feature) => {
-          const Component = feature.component;
-          return (
-            <div
-              key={feature.name}
-              style={{
-                marginBottom: "3rem",
-                borderBottom: "0.5rem solid pink",
-              }}
-            >
-              <h2>{feature.name}</h2>
-              <Component />
-            </div>
-          );
-        })}
+      <div className="components-container">
+        {(renderAll ? FEATURE : [FEATURE[currentComponentIndex]]).map(
+          (feature, index) => {
+            const Component = feature.component;
+            return (
+              <div key={feature.name} className="component-container">
+                <h2 className="component-name">{feature.name}</h2>
+                <Component />
+                <br />
+                <br />
+                <button onClick={() => handleShowProblemStatement(index)}>
+                  {showProblemStatement[index]
+                    ? "Hide Problem Statement"
+                    : "Show Problem Statement"}
+                </button>
+                {showProblemStatement[index] && Boolean(feature?.desc) ? (
+                  <div>
+                    <p className="question-statement">{feature.desc}</p>
+
+                    <button onClick={() => handleShowProblemChallenges(index)}>
+                      {showProblemChallenges[index]
+                        ? "Hide Challenges"
+                        : "Show Challenges"}
+                    </button>
+
+                    {feature.challenges?.map((challenge, index) => (
+                      <p className="question-challenges" key={index}>
+                        {index + 1}. {challenge}
+                      </p>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            );
+          }
+        )}
       </div>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -146,6 +101,7 @@ const handlePrevClick = () =>
         </a>
       </div>
       <h1>Vite + React</h1>
+      <h2>React Play</h2>
       {JSON.stringify(PACKAGE.dependencies, null, 2)}
     </>
   );

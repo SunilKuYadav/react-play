@@ -67,39 +67,44 @@ const ClickToCHangeColor = () => {
   return (
     <div
       style={{
-        width: "400px",
-        height: "400px",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
-        cursor: "pointer",
-        border: "1px solid black",
       }}
     >
-      {Array.from({ length: ROW }).map((_, idx) => {
-        return (
-          <div key={`row-${idx}`}>
-            {Array.from({ length: COL }).map((_, jdx) => {
-              return (
-                <button
-                  key={`button-${idx}-${jdx}`}
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    margin: "5px",
-                    backgroundColor: colors[idx][jdx],
-                    border: "1px solid black",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => handleButtonClick(idx, jdx)}
-                ></button>
-              );
-            })}
-          </div>
-        );
-      })}
-      <div>
+      <div
+        style={{
+          width: "400px",
+          height: "400px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          cursor: "pointer",
+          border: "1px solid black",
+        }}
+      >
+        {Array.from({ length: ROW }).map((_, idx) => {
+          return (
+            <div key={`row-${idx}`}>
+              {Array.from({ length: COL }).map((_, jdx) => {
+                return (
+                  <button
+                    key={`button-${idx}-${jdx}`}
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      margin: "5px",
+                      backgroundColor: colors[idx][jdx],
+                      border: "1px solid black",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleButtonClick(idx, jdx)}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
         <button onClick={handleResetColor}>Reset Color</button>
       </div>
     </div>
