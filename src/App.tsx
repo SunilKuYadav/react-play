@@ -18,6 +18,7 @@ import {
 } from "./components";
 
 import PACKAGE from "../package.json";
+import { useState } from "react";
 
 const FEATURE = [
   {
@@ -72,31 +73,37 @@ const FEATURE = [
   },
   {
     name: "Tic Tac Toe",
-    desc: '',
-    component: TicTacToe
+    desc: "",
+    component: TicTacToe,
   },
   {
     name: "Elevator",
     des: "",
-    component: Elevator
+    component: Elevator,
   },
   {
-    name: 'Flip Card',
+    name: "Flip Card",
     des: "",
-    component: FlipCard
-  }
+    component: FlipCard,
+  },
 ];
 
 function App() {
+  const [currentComponents, setCurrentComponents] = useState(() =>
+    FEATURE.slice(FEATURE.length - 1)
+  );
+  const [renderAll, setRenderAll] = useState(false);
+
   return (
     <>
       <div>
-        <input type="text" />
-        <button>Search</button>
-
-        <input type="text" placeholder="Count" />
-
-        <button>Render random</button>
+        <button onClick={() => setRenderAll((p) => !p)}>
+          {renderAll ? "Render One" : "Render All"}
+        </button>
+       {!renderAll && <>
+        <button>Prev</button>
+        <button>Next</button>
+       </>}
       </div>
       <div
         style={{
@@ -106,11 +113,11 @@ function App() {
           border: "1px solid red",
         }}
       >
-        {FEATURE.slice(FEATURE.length - 1).map((_, i) => {
+        {(renderAll ? FEATURE : currentComponents).map((_, i) => {
           const feature = FEATURE[FEATURE.length - 1 - i];
           const Component = feature.component;
           return (
-            <div key={feature.name} style={{ marginBottom: "3rem" }}>
+            <div key={feature.name} style={{ marginBottom: "3rem", borderBottom: '0.5rem solid pink' }}>
               <h2>{feature.name}</h2>
               <Component />
             </div>
