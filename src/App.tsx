@@ -89,10 +89,15 @@ const FEATURE = [
 ];
 
 function App() {
-  const [currentComponents, setCurrentComponents] = useState(() =>
-    FEATURE.slice(FEATURE.length - 1)
+  const [currentComponents, setCurrentComponents] = useState(
+    FEATURE.length - 1
   );
   const [renderAll, setRenderAll] = useState(false);
+
+  const handlePrevClick = () => {setCurrentComponents(prev => (prev - 1) / (FEATURE.length - 1))}
+  const handleNextClick = () => {setCurrentComponents(prev => (prev + 1) / (FEATURE.length - 1))}
+
+
 
   return (
     <>
@@ -100,10 +105,12 @@ function App() {
         <button onClick={() => setRenderAll((p) => !p)}>
           {renderAll ? "Render One" : "Render All"}
         </button>
-       {!renderAll && <>
-        <button>Prev</button>
-        <button>Next</button>
-       </>}
+        {!renderAll && (
+          <>
+            <button onClick={handlePrevClick}>Prev</button>
+            <button onClick={handleNextClick}>Next</button>
+          </>
+        )}
       </div>
       <div
         style={{
@@ -113,11 +120,17 @@ function App() {
           border: "1px solid red",
         }}
       >
-        {(renderAll ? FEATURE : currentComponents).map((_, i) => {
+        {(renderAll ? FEATURE : [FEATURE[currentComponents]]).map((_, i) => {
           const feature = FEATURE[FEATURE.length - 1 - i];
           const Component = feature.component;
           return (
-            <div key={feature.name} style={{ marginBottom: "3rem", borderBottom: '0.5rem solid pink' }}>
+            <div
+              key={feature.name}
+              style={{
+                marginBottom: "3rem",
+                borderBottom: "0.5rem solid pink",
+              }}
+            >
               <h2>{feature.name}</h2>
               <Component />
             </div>
